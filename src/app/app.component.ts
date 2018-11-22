@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'heap-ui';
+  img;
+
+  constructor(
+    private http: HttpClient,
+  ) { }
+
+  onSubmit(f: NgForm) {
+    const url = `http://localhost:1323/upload`;
+    const { category } = f.value;
+    const fd = new FormData();
+    fd.append('category', category);
+    fd.append('image', this.img);
+
+    this.http.post(url, fd).subscribe(
+      r => console.warn(r)
+    );
+  }
+
+  onFileChange(event) {
+    this.img = event.target.files[0];
+  }
 }
