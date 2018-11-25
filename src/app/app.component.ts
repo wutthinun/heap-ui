@@ -15,7 +15,7 @@ export class AppComponent {
   ) { }
 
   onSubmit(f: NgForm) {
-    const url = `http://localhost:1323/upload`;
+    const url = `/api/upload`;
     const { category } = f.value;
     const fd = new FormData();
     fd.append('category', category);
