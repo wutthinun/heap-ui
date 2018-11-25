@@ -1,5 +1,13 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
-  <input type="text" name="category" ngModel id="category">
-  <input type="file" id="image" (change)="onFileChange($event)">
-  <input type="submit" value="Submit">
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4 shadow p-3 mb-5 bg-white rounded">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-group justify-content-center">
+          <input type="text" class="form-control" name="category" ngModel id="category" placeholder="Category">
+          <input type="file" class="form-control-file" id="image" (change)="onFileChange($event)">
+          <input class="btn btn-outline-success" type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
